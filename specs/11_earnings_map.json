@@ -1,0 +1,192 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 400,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -27
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.state",
+          "from": {
+            "data": {
+              "url": "data/state_context.json"
+            },
+            "key": "state",
+            "fields": [
+              "code",
+              "weekly_earnings",
+              "bachelor_thousands",
+              "bachelor_pct"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "field": "weekly_earnings",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1250,
+              1650
+            ],
+            "range": [
+              "#e5efe8",
+              "#126b68"
+            ]
+          },
+          "legend": {
+            "title": "Median weekly earnings (AUD)",
+            "format": "$,.0f",
+            "values": [
+              1300,
+              1400,
+              1500,
+              1600
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "weekly_earnings",
+            "type": "quantitative",
+            "title": "All-employee weekly median",
+            "format": "$,.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_context.json"
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "white",
+        "stroke": "white",
+        "strokeWidth": 4,
+        "dx": {
+          "expr": "datum.code === 'ACT' ? 18 : 0"
+        },
+        "dy": {
+          "expr": "datum.code === 'ACT' ? 13 : 0"
+        },
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude"
+        },
+        "latitude": {
+          "field": "latitude"
+        },
+        "text": {
+          "field": "code"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_context.json"
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#18354a",
+        "stroke": null,
+        "strokeWidth": 0,
+        "dx": {
+          "expr": "datum.code === 'ACT' ? 18 : 0"
+        },
+        "dy": {
+          "expr": "datum.code === 'ACT' ? 13 : 0"
+        }
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude"
+        },
+        "latitude": {
+          "field": "latitude"
+        },
+        "text": {
+          "field": "code"
+        }
+      }
+    }
+  ]
+}

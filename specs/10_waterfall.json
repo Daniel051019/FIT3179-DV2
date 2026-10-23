@@ -1,0 +1,152 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 340,
+  "data": {
+    "values": [
+      {
+        "stage": "2016 salary",
+        "low": 0,
+        "high": 57900,
+        "type": "Total",
+        "amount": 57900
+      },
+      {
+        "stage": "Inflation",
+        "low": 57900,
+        "high": 75547.24,
+        "type": "Inflation",
+        "amount": 17647.240000000005
+      },
+      {
+        "stage": "Real gain",
+        "low": 75547.24,
+        "high": 77000,
+        "type": "Real gain",
+        "amount": 1452.7599999999948
+      },
+      {
+        "stage": "2025 salary",
+        "low": 0,
+        "high": 77000,
+        "type": "Total",
+        "amount": 77000
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "stage",
+      "type": "ordinal",
+      "sort": null,
+      "title": null,
+      "axis": {
+        "labelAngle": 0,
+        "labelLimit": 160
+      }
+    },
+    "y": {
+      "field": "high",
+      "type": "quantitative",
+      "title": "Annual salary (AUD)",
+      "axis": {
+        "format": "$,.0f"
+      }
+    },
+    "y2": {
+      "field": "low"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "size": 60
+      },
+      "encoding": {
+        "color": {
+          "field": "type",
+          "scale": {
+            "domain": [
+              "Total",
+              "Inflation",
+              "Real gain"
+            ],
+            "range": [
+              "#18354a",
+              "#9d6a1d",
+              "#126b68"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "stage",
+            "type": "nominal",
+            "title": "Component"
+          },
+          {
+            "field": "amount",
+            "type": "quantitative",
+            "title": "Amount",
+            "format": "$,.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -10,
+        "fontSize": 11,
+        "color": "#18354a"
+      },
+      "encoding": {
+        "y2": null,
+        "text": {
+          "field": "amount",
+          "format": "$,.0f"
+        }
+      }
+    }
+  ]
+}

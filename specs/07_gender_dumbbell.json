@@ -1,0 +1,204 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 600,
+  "data": {
+    "url": "data/study_outcomes.json"
+  },
+  "transform": [
+    {
+      "filter": "datum.year == 2025"
+    },
+    {
+      "filter": "isValid(datum.male) && isValid(datum.female)"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "label",
+      "type": "nominal",
+      "sort": {
+        "field": "gap_pct",
+        "order": "descending"
+      },
+      "title": null
+    },
+    "x": {
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          55000,
+          90000
+        ]
+      },
+      "title": "Median annual full-time salary (AUD)",
+      "axis": {
+        "format": "$,.0f"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#b9c7c2",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "female"
+        },
+        "x2": {
+          "field": "male"
+        },
+        "tooltip": [
+          {
+            "field": "field",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "female",
+            "type": "quantitative",
+            "title": "Female",
+            "format": "$,.0f"
+          },
+          {
+            "field": "male",
+            "type": "quantitative",
+            "title": "Male",
+            "format": "$,.0f"
+          },
+          {
+            "field": "gap_pct",
+            "type": "quantitative",
+            "title": "Gender gap (%)",
+            "format": "0.1f"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "test": "followField === '' || datum.field === followField",
+            "value": 1
+          },
+          "value": 0.16
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "fold": [
+            "female",
+            "male"
+          ],
+          "as": [
+            "gender",
+            "salary"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 100,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "salary"
+        },
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "female",
+              "male"
+            ],
+            "range": [
+              "#bb6656",
+              "#4b55a3"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "labelExpr": "datum.label === 'female' ? 'Female graduates' : 'Male graduates'"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "field",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "gender",
+            "type": "nominal",
+            "title": "Gender"
+          },
+          {
+            "field": "salary",
+            "type": "quantitative",
+            "title": "Median salary",
+            "format": "$,.0f"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "test": "followField === '' || datum.field === followField",
+            "value": 1
+          },
+          "value": 0.16
+        }
+      }
+    }
+  ],
+  "params": [
+    {
+      "name": "followField",
+      "value": ""
+    }
+  ],
+  "usermeta": {
+    "linkedField": true
+  }
+}

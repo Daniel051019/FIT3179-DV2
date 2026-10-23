@@ -1,0 +1,236 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 270,
+  "data": {
+    "url": "data/study_outcomes.json"
+  },
+  "transform": [
+    {
+      "filter": "datum.year == 2025"
+    },
+    {
+      "filter": {
+        "field": "field",
+        "oneOf": [
+          "Computing and information systems",
+          "Engineering",
+          "Nursing",
+          "Pharmacy",
+          "Teacher education",
+          "Creative arts"
+        ]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#e7eeea",
+        "size": 30
+      },
+      "encoding": {
+        "y": {
+          "field": "label",
+          "type": "nominal",
+          "sort": [
+            "Dentistry",
+            "Medicine",
+            "Social work",
+            "Engineering",
+            "Teacher education",
+            "Computing & information systems",
+            "Law & paralegal studies",
+            "Health services and support",
+            "Psychology",
+            "Rehabilitation",
+            "Architecture & built environment",
+            "Humanities & social sciences",
+            "Nursing",
+            "Agriculture & environment",
+            "Veterinary science",
+            "Business & management",
+            "Science and mathematics",
+            "Tourism, hospitality & recreation",
+            "Communications",
+            "Creative arts",
+            "Pharmacy"
+          ],
+          "title": null
+        },
+        "x": {
+          "datum": 110000,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              110000
+            ]
+          },
+          "title": "Annual salary (AUD)",
+          "axis": {
+            "format": "$,.0f"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#126b68",
+        "size": 13
+      },
+      "encoding": {
+        "y": {
+          "field": "label",
+          "type": "nominal",
+          "sort": [
+            "Dentistry",
+            "Medicine",
+            "Social work",
+            "Engineering",
+            "Teacher education",
+            "Computing & information systems",
+            "Law & paralegal studies",
+            "Health services and support",
+            "Psychology",
+            "Rehabilitation",
+            "Architecture & built environment",
+            "Humanities & social sciences",
+            "Nursing",
+            "Agriculture & environment",
+            "Veterinary science",
+            "Business & management",
+            "Science and mathematics",
+            "Tourism, hospitality & recreation",
+            "Communications",
+            "Creative arts",
+            "Pharmacy"
+          ],
+          "title": null
+        },
+        "x": {
+          "field": "salary",
+          "type": "quantitative",
+          "title": "Annual salary (AUD)"
+        },
+        "tooltip": [
+          {
+            "field": "field",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Survey year",
+            "format": "d"
+          },
+          {
+            "field": "salary",
+            "type": "quantitative",
+            "title": "Median full-time salary",
+            "format": "$,.0f"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "test": "followField === '' || datum.field === followField",
+            "value": 1
+          },
+          "value": 0.16
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "tick",
+        "color": "#68757d",
+        "size": 32,
+        "thickness": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "label",
+          "type": "nominal",
+          "sort": [
+            "Dentistry",
+            "Medicine",
+            "Social work",
+            "Engineering",
+            "Teacher education",
+            "Computing & information systems",
+            "Law & paralegal studies",
+            "Health services and support",
+            "Psychology",
+            "Rehabilitation",
+            "Architecture & built environment",
+            "Humanities & social sciences",
+            "Nursing",
+            "Agriculture & environment",
+            "Veterinary science",
+            "Business & management",
+            "Science and mathematics",
+            "Tourism, hospitality & recreation",
+            "Communications",
+            "Creative arts",
+            "Pharmacy"
+          ],
+          "title": null
+        },
+        "x": {
+          "datum": 77000,
+          "title": "Annual salary (AUD)"
+        }
+      }
+    }
+  ],
+  "params": [
+    {
+      "name": "followField",
+      "value": ""
+    }
+  ],
+  "usermeta": {
+    "linkedField": true
+  }
+}

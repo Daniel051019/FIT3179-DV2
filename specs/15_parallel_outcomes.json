@@ -1,0 +1,586 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 330,
+  "padding": {
+    "top": 76,
+    "left": 5,
+    "right": 5,
+    "bottom": 5
+  },
+  "encoding": {
+    "x": {
+      "field": "axis",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          -0.28,
+          2.28
+        ]
+      },
+      "axis": null
+    },
+    "y": {
+      "field": "score",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          1
+        ]
+      },
+      "axis": null
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "axis": 0,
+            "score": 1,
+            "title": "Annual salary\nAUD / year"
+          },
+          {
+            "axis": 1,
+            "score": 1,
+            "title": "Full-time work\n% available for full-time work"
+          },
+          {
+            "axis": 2,
+            "score": 1,
+            "title": "Want more hours\n% of employed graduates"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#cad6d1"
+      },
+      "encoding": {
+        "y": {
+          "datum": 0
+        },
+        "y2": {
+          "datum": 1
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "axis": 0,
+            "score": 0.09090909090909091,
+            "tick": "$60,000"
+          },
+          {
+            "axis": 0,
+            "score": 0.45454545454545453,
+            "tick": "$80,000"
+          },
+          {
+            "axis": 0,
+            "score": 0.8181818181818182,
+            "tick": "$100,000"
+          },
+          {
+            "axis": 1,
+            "score": 0.09090909090909091,
+            "tick": "50%"
+          },
+          {
+            "axis": 1,
+            "score": 0.5454545454545454,
+            "tick": "75%"
+          },
+          {
+            "axis": 1,
+            "score": 1.0,
+            "tick": "100%"
+          },
+          {
+            "axis": 2,
+            "score": 1.0,
+            "tick": "0%"
+          },
+          {
+            "axis": 2,
+            "score": 0.5,
+            "tick": "20%"
+          },
+          {
+            "axis": 2,
+            "score": 0.0,
+            "tick": "40%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "tick",
+        "orient": "horizontal",
+        "size": 10,
+        "color": "#9cafa6"
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "axis": 0,
+            "score": 0.09090909090909091,
+            "tick": "$60,000"
+          },
+          {
+            "axis": 0,
+            "score": 0.45454545454545453,
+            "tick": "$80,000"
+          },
+          {
+            "axis": 0,
+            "score": 0.8181818181818182,
+            "tick": "$100,000"
+          },
+          {
+            "axis": 1,
+            "score": 0.09090909090909091,
+            "tick": "50%"
+          },
+          {
+            "axis": 1,
+            "score": 0.5454545454545454,
+            "tick": "75%"
+          },
+          {
+            "axis": 1,
+            "score": 1.0,
+            "tick": "100%"
+          },
+          {
+            "axis": 2,
+            "score": 1.0,
+            "tick": "0%"
+          },
+          {
+            "axis": 2,
+            "score": 0.5,
+            "tick": "20%"
+          },
+          {
+            "axis": 2,
+            "score": 0.0,
+            "tick": "40%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -9,
+        "fontSize": 11,
+        "color": "#18354a"
+      },
+      "encoding": {
+        "text": {
+          "field": "tick"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "axis": 0,
+            "score": 1,
+            "title": "Annual salary\nAUD / year"
+          },
+          {
+            "axis": 1,
+            "score": 1,
+            "title": "Full-time work\n% available for full-time work"
+          },
+          {
+            "axis": 2,
+            "score": 1,
+            "title": "Want more hours\n% of employed graduates"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -61,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#18354a",
+        "lineBreak": "\n",
+        "lineHeight": 17
+      },
+      "encoding": {
+        "y": {
+          "datum": 1
+        },
+        "text": {
+          "field": "title"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "axis": 0,
+            "score": 1,
+            "direction": "↑ Higher pay"
+          },
+          {
+            "axis": 1,
+            "score": 1,
+            "direction": "↑ More access to work"
+          },
+          {
+            "axis": 2,
+            "score": 1,
+            "direction": "↑ Fewer wanting more hours"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -15,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#126b68"
+      },
+      "encoding": {
+        "text": {
+          "field": "direction"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "axis": 0,
+            "score": 0.45454545454545453,
+            "study": "Computing and information systems",
+            "label": "Computing",
+            "measure": "Salary (AUD)",
+            "value": 80000.0,
+            "value_label": "$80,000 a year"
+          },
+          {
+            "axis": 1,
+            "score": 0.369090909090909,
+            "study": "Computing and information systems",
+            "label": "Computing",
+            "measure": "Full-time employment (%)",
+            "value": 65.3,
+            "value_label": "65.3%"
+          },
+          {
+            "axis": 2,
+            "score": 0.53,
+            "study": "Computing and information systems",
+            "label": "Computing",
+            "measure": "Want more hours (%)",
+            "value": 18.8,
+            "value_label": "18.8%"
+          },
+          {
+            "axis": 0,
+            "score": 0.14909090909090908,
+            "study": "Creative arts",
+            "label": "Creative arts",
+            "measure": "Salary (AUD)",
+            "value": 63200.0,
+            "value_label": "$63,200 a year"
+          },
+          {
+            "axis": 1,
+            "score": 0.14545454545454545,
+            "study": "Creative arts",
+            "label": "Creative arts",
+            "measure": "Full-time employment (%)",
+            "value": 53.0,
+            "value_label": "53.0%"
+          },
+          {
+            "axis": 2,
+            "score": 0.14250000000000007,
+            "study": "Creative arts",
+            "label": "Creative arts",
+            "measure": "Want more hours (%)",
+            "value": 34.3,
+            "value_label": "34.3%"
+          },
+          {
+            "axis": 0,
+            "score": 0.13818181818181818,
+            "study": "Pharmacy",
+            "label": "Pharmacy",
+            "measure": "Salary (AUD)",
+            "value": 62600.0,
+            "value_label": "$62,600 a year"
+          },
+          {
+            "axis": 1,
+            "score": 0.9345454545454547,
+            "study": "Pharmacy",
+            "label": "Pharmacy",
+            "measure": "Full-time employment (%)",
+            "value": 96.4,
+            "value_label": "96.4%"
+          },
+          {
+            "axis": 2,
+            "score": 0.89,
+            "study": "Pharmacy",
+            "label": "Pharmacy",
+            "measure": "Want more hours (%)",
+            "value": 4.4,
+            "value_label": "4.4%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "point": {
+          "filled": true,
+          "size": 80
+        },
+        "strokeWidth": {
+          "expr": "parallelField !== '' && datum.study === parallelField ? 4.5 : 2.5"
+        }
+      },
+      "encoding": {
+        "detail": {
+          "field": "study"
+        },
+        "order": {
+          "field": "axis"
+        },
+        "color": {
+          "field": "label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Computing",
+              "Creative arts",
+              "Pharmacy"
+            ],
+            "range": [
+              "#8767ab",
+              "#536784",
+              "#6d6f75"
+            ]
+          },
+          "legend": {
+            "title": null
+          }
+        },
+        "tooltip": [
+          {
+            "field": "study",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "measure",
+            "type": "nominal",
+            "title": "Measure"
+          },
+          {
+            "field": "value_label",
+            "type": "nominal",
+            "title": "Observed value"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "test": "parallelField === '' || datum.study === parallelField",
+            "value": 1
+          },
+          "value": 0.16
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "axis": 0,
+            "score": 0.45454545454545453,
+            "study": "Computing and information systems",
+            "label": "Computing",
+            "measure": "Salary (AUD)",
+            "value": 80000.0,
+            "value_label": "$80,000 a year"
+          },
+          {
+            "axis": 1,
+            "score": 0.369090909090909,
+            "study": "Computing and information systems",
+            "label": "Computing",
+            "measure": "Full-time employment (%)",
+            "value": 65.3,
+            "value_label": "65.3%"
+          },
+          {
+            "axis": 2,
+            "score": 0.53,
+            "study": "Computing and information systems",
+            "label": "Computing",
+            "measure": "Want more hours (%)",
+            "value": 18.8,
+            "value_label": "18.8%"
+          },
+          {
+            "axis": 0,
+            "score": 0.14909090909090908,
+            "study": "Creative arts",
+            "label": "Creative arts",
+            "measure": "Salary (AUD)",
+            "value": 63200.0,
+            "value_label": "$63,200 a year"
+          },
+          {
+            "axis": 1,
+            "score": 0.14545454545454545,
+            "study": "Creative arts",
+            "label": "Creative arts",
+            "measure": "Full-time employment (%)",
+            "value": 53.0,
+            "value_label": "53.0%"
+          },
+          {
+            "axis": 2,
+            "score": 0.14250000000000007,
+            "study": "Creative arts",
+            "label": "Creative arts",
+            "measure": "Want more hours (%)",
+            "value": 34.3,
+            "value_label": "34.3%"
+          },
+          {
+            "axis": 0,
+            "score": 0.13818181818181818,
+            "study": "Pharmacy",
+            "label": "Pharmacy",
+            "measure": "Salary (AUD)",
+            "value": 62600.0,
+            "value_label": "$62,600 a year"
+          },
+          {
+            "axis": 1,
+            "score": 0.9345454545454547,
+            "study": "Pharmacy",
+            "label": "Pharmacy",
+            "measure": "Full-time employment (%)",
+            "value": 96.4,
+            "value_label": "96.4%"
+          },
+          {
+            "axis": 2,
+            "score": 0.89,
+            "study": "Pharmacy",
+            "label": "Pharmacy",
+            "measure": "Want more hours (%)",
+            "value": 4.4,
+            "value_label": "4.4%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": 12,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#18354a"
+      },
+      "encoding": {
+        "detail": {
+          "field": "study"
+        },
+        "tooltip": [
+          {
+            "field": "study",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "measure",
+            "type": "nominal",
+            "title": "Measure"
+          },
+          {
+            "field": "value_label",
+            "type": "nominal",
+            "title": "Observed value"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "test": "parallelField === '' || datum.study === parallelField",
+            "value": 1
+          },
+          "value": 0.16
+        },
+        "text": {
+          "field": "value_label"
+        }
+      },
+      "transform": [
+        {
+          "filter": "parallelField !== '' && datum.study === parallelField"
+        }
+      ]
+    }
+  ],
+  "params": [
+    {
+      "name": "parallelField",
+      "value": ""
+    }
+  ]
+}

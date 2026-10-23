@@ -1,0 +1,156 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 400,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -27
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "fill": "#edf1ed",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_context.json"
+      },
+      "mark": {
+        "type": "circle",
+        "color": "#77568e",
+        "opacity": 0.75,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude"
+        },
+        "latitude": {
+          "field": "latitude"
+        },
+        "size": {
+          "field": "bachelor_thousands",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1500
+            ],
+            "range": [
+              0,
+              3000
+            ]
+          },
+          "legend": {
+            "title": "Bachelor as highest qualification (000s)",
+            "values": [
+              100,
+              500,
+              1400
+            ],
+            "direction": "horizontal",
+            "columns": 3
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "bachelor_thousands",
+            "type": "quantitative",
+            "title": "Estimated people (thousands)",
+            "format": "0.1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_context.json"
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "dy": -12,
+        "fontWeight": "bold",
+        "color": "#18354a"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude"
+        },
+        "latitude": {
+          "field": "latitude"
+        },
+        "text": {
+          "field": "code"
+        }
+      }
+    }
+  ]
+}

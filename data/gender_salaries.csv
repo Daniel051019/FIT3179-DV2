@@ -1,0 +1,85 @@
+field,label,year,gender,salary
+Agriculture and environmental studies,Agriculture & environment,2024,Female,70800.0
+Agriculture and environmental studies,Agriculture & environment,2024,Male,73200.0
+Agriculture and environmental studies,Agriculture & environment,2025,Female,75000.0
+Agriculture and environmental studies,Agriculture & environment,2025,Male,75000.0
+Architecture and built environment,Architecture & built environment,2024,Female,69400.0
+Architecture and built environment,Architecture & built environment,2024,Male,78700.0
+Architecture and built environment,Architecture & built environment,2025,Female,72500.0
+Architecture and built environment,Architecture & built environment,2025,Male,79300.0
+Business and management,Business & management,2024,Female,72000.0
+Business and management,Business & management,2024,Male,72000.0
+Business and management,Business & management,2025,Female,72500.0
+Business and management,Business & management,2025,Male,75000.0
+Communications,Communications,2024,Female,66500.0
+Communications,Communications,2024,Male,63400.0
+Communications,Communications,2025,Female,66500.0
+Communications,Communications,2025,Male,65300.0
+Computing and information systems,Computing & information systems,2024,Female,75000.0
+Computing and information systems,Computing & information systems,2024,Male,76000.0
+Computing and information systems,Computing & information systems,2025,Female,79200.0
+Computing and information systems,Computing & information systems,2025,Male,80000.0
+Creative arts,Creative arts,2024,Female,62000.0
+Creative arts,Creative arts,2024,Male,65500.0
+Creative arts,Creative arts,2025,Female,64200.0
+Creative arts,Creative arts,2025,Male,62500.0
+Dentistry,Dentistry,2024,Female,97300.0
+Dentistry,Dentistry,2024,Male,
+Dentistry,Dentistry,2025,Female,100400.0
+Dentistry,Dentistry,2025,Male,
+Engineering,Engineering,2024,Female,78300.0
+Engineering,Engineering,2024,Male,80000.0
+Engineering,Engineering,2025,Female,80400.0
+Engineering,Engineering,2025,Male,83000.0
+Health services and support,Health services and support,2024,Female,73600.0
+Health services and support,Health services and support,2024,Male,75800.0
+Health services and support,Health services and support,2025,Female,76200.0
+Health services and support,Health services and support,2025,Male,80000.0
+"Humanities, culture and social sciences",Humanities & social sciences,2024,Female,72400.0
+"Humanities, culture and social sciences",Humanities & social sciences,2024,Male,74000.0
+"Humanities, culture and social sciences",Humanities & social sciences,2025,Female,75000.0
+"Humanities, culture and social sciences",Humanities & social sciences,2025,Male,78300.0
+Law and paralegal studies,Law & paralegal studies,2024,Female,75000.0
+Law and paralegal studies,Law & paralegal studies,2024,Male,80000.0
+Law and paralegal studies,Law & paralegal studies,2025,Female,77000.0
+Law and paralegal studies,Law & paralegal studies,2025,Male,83000.0
+Medicine,Medicine,2024,Female,84000.0
+Medicine,Medicine,2024,Male,87700.0
+Medicine,Medicine,2025,Female,85800.0
+Medicine,Medicine,2025,Male,86700.0
+Nursing,Nursing,2024,Female,71400.0
+Nursing,Nursing,2024,Male,74000.0
+Nursing,Nursing,2025,Female,75100.0
+Nursing,Nursing,2025,Male,77100.0
+Pharmacy,Pharmacy,2024,Female,59500.0
+Pharmacy,Pharmacy,2024,Male,58900.0
+Pharmacy,Pharmacy,2025,Female,62600.0
+Pharmacy,Pharmacy,2025,Male,63400.0
+Psychology,Psychology,2024,Female,75000.0
+Psychology,Psychology,2024,Male,77800.0
+Psychology,Psychology,2025,Female,77000.0
+Psychology,Psychology,2025,Male,72000.0
+Rehabilitation,Rehabilitation,2024,Female,75000.0
+Rehabilitation,Rehabilitation,2024,Male,75000.0
+Rehabilitation,Rehabilitation,2025,Female,75100.0
+Rehabilitation,Rehabilitation,2025,Male,76200.0
+Science and mathematics,Science and mathematics,2024,Female,70000.0
+Science and mathematics,Science and mathematics,2024,Male,75000.0
+Science and mathematics,Science and mathematics,2025,Female,71800.0
+Science and mathematics,Science and mathematics,2025,Male,77000.0
+Social work,Social work,2024,Female,81500.0
+Social work,Social work,2024,Male,82300.0
+Social work,Social work,2025,Female,85300.0
+Social work,Social work,2025,Male,85100.0
+Teacher education,Teacher education,2024,Female,78300.0
+Teacher education,Teacher education,2024,Male,81000.0
+Teacher education,Teacher education,2025,Female,81000.0
+Teacher education,Teacher education,2025,Male,84100.0
+"Tourism, hospitality, personal services, sport and recreation","Tourism, hospitality & recreation",2024,Female,60000.0
+"Tourism, hospitality, personal services, sport and recreation","Tourism, hospitality & recreation",2024,Male,70200.0
+"Tourism, hospitality, personal services, sport and recreation","Tourism, hospitality & recreation",2025,Female,
+"Tourism, hospitality, personal services, sport and recreation","Tourism, hospitality & recreation",2025,Male,70000.0
+Veterinary science,Veterinary science,2024,Female,70000.0
+Veterinary science,Veterinary science,2024,Male,
+Veterinary science,Veterinary science,2025,Female,75000.0
+Veterinary science,Veterinary science,2025,Male,77800.0

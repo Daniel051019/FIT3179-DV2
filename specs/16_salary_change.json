@@ -1,0 +1,301 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 650,
+  "padding": {
+    "top": 12,
+    "left": 5,
+    "right": 16,
+    "bottom": 5
+  },
+  "data": {
+    "url": "data/study_outcomes.json"
+  },
+  "params": [
+    {
+      "name": "followField",
+      "value": ""
+    }
+  ],
+  "usermeta": {
+    "linkedField": true
+  },
+  "transform": [
+    {
+      "pivot": "year",
+      "value": "salary",
+      "groupby": [
+        "field",
+        "label"
+      ]
+    },
+    {
+      "calculate": "datum['2025'] - datum['2024']",
+      "as": "change"
+    },
+    {
+      "calculate": "datum.change / datum['2024'] * 100",
+      "as": "change_pct"
+    },
+    {
+      "calculate": "max(datum.change, 0)",
+      "as": "label_x"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#126b68",
+        "cornerRadiusEnd": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "change",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -2000,
+              7500
+            ]
+          },
+          "title": "Change in median annual salary, 2024–2025 (AUD)",
+          "axis": {
+            "format": "$,.0f",
+            "values": [
+              -2000,
+              0,
+              2000,
+              4000,
+              6000
+            ]
+          }
+        },
+        "y": {
+          "field": "label",
+          "type": "nominal",
+          "sort": [
+            "Tourism, hospitality & recreation",
+            "Veterinary science",
+            "Computing & information systems",
+            "Law & paralegal studies",
+            "Agriculture & environment",
+            "Social work",
+            "Teacher education",
+            "Nursing",
+            "Pharmacy",
+            "Engineering",
+            "Health services and support",
+            "Business & management",
+            "Humanities & social sciences",
+            "Communications",
+            "Science and mathematics",
+            "Creative arts",
+            "Rehabilitation",
+            "Psychology",
+            "Architecture & built environment",
+            "Dentistry",
+            "Medicine"
+          ],
+          "title": null
+        },
+        "opacity": {
+          "condition": {
+            "test": "followField === '' || datum.field === followField",
+            "value": 1
+          },
+          "value": 0.16
+        },
+        "tooltip": [
+          {
+            "field": "field",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "2024",
+            "type": "quantitative",
+            "title": "2024 annual median",
+            "format": "$,.0f"
+          },
+          {
+            "field": "2025",
+            "type": "quantitative",
+            "title": "2025 annual median",
+            "format": "$,.0f"
+          },
+          {
+            "field": "change",
+            "type": "quantitative",
+            "title": "Change (AUD)",
+            "format": "+$,.0f"
+          },
+          {
+            "field": "change_pct",
+            "type": "quantitative",
+            "title": "Change (%)",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#68757d",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "datum": 0,
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 7,
+        "color": "#18354a",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {
+          "field": "label_x",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -2000,
+              7500
+            ]
+          },
+          "title": "Change in median annual salary, 2024–2025 (AUD)",
+          "axis": {
+            "format": "$,.0f",
+            "values": [
+              -2000,
+              0,
+              2000,
+              4000,
+              6000
+            ]
+          }
+        },
+        "y": {
+          "field": "label",
+          "type": "nominal",
+          "sort": [
+            "Tourism, hospitality & recreation",
+            "Veterinary science",
+            "Computing & information systems",
+            "Law & paralegal studies",
+            "Agriculture & environment",
+            "Social work",
+            "Teacher education",
+            "Nursing",
+            "Pharmacy",
+            "Engineering",
+            "Health services and support",
+            "Business & management",
+            "Humanities & social sciences",
+            "Communications",
+            "Science and mathematics",
+            "Creative arts",
+            "Rehabilitation",
+            "Psychology",
+            "Architecture & built environment",
+            "Dentistry",
+            "Medicine"
+          ],
+          "title": null
+        },
+        "text": {
+          "field": "change",
+          "format": "+$,.0f"
+        },
+        "opacity": {
+          "condition": {
+            "test": "followField === '' || datum.field === followField",
+            "value": 1
+          },
+          "value": 0.16
+        },
+        "tooltip": [
+          {
+            "field": "field",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "2024",
+            "type": "quantitative",
+            "title": "2024 annual median",
+            "format": "$,.0f"
+          },
+          {
+            "field": "2025",
+            "type": "quantitative",
+            "title": "2025 annual median",
+            "format": "$,.0f"
+          },
+          {
+            "field": "change",
+            "type": "quantitative",
+            "title": "Change (AUD)",
+            "format": "+$,.0f"
+          },
+          {
+            "field": "change_pct",
+            "type": "quantitative",
+            "title": "Change (%)",
+            "format": "+.1f"
+          }
+        ]
+      }
+    }
+  ]
+}

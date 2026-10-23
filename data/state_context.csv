@@ -1,0 +1,9 @@
+code,state,longitude,latitude,tile_x,tile_y,weekly_earnings,bachelor_thousands,bachelor_pct
+NSW,New South Wales,146,-32,3,1,1464,1426.3,22.7
+VIC,Victoria,144.5,-37,3,2,1380,1204.6,23.0
+QLD,Queensland,144,-22,3,0,1439,775.4,19.0
+SA,South Australia,135,-30,2,1,1300,253.3,18.5
+WA,Western Australia,122,-25,0,1,1500,431.6,19.9
+TAS,Tasmania,147,-42,3,3,1300,68.9,16.5
+NT,Northern Territory,133,-19,1,0,1510,29.4,19.4
+ACT,Australian Capital Territory,149.0,-35.5,4,2,1600,94.6,26.5

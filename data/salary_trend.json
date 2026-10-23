@@ -1,0 +1,82 @@
+[
+  {
+    "year": 2016,
+    "salary": 57900,
+    "cpi": 108.6,
+    "real_2025": 75547.24,
+    "salary_index": 100.0,
+    "price_index": 100.0
+  },
+  {
+    "year": 2017,
+    "salary": 60000,
+    "cpi": 110.7,
+    "real_2025": 76802.17,
+    "salary_index": 103.6269,
+    "price_index": 101.9337
+  },
+  {
+    "year": 2018,
+    "salary": 61000,
+    "cpi": 113.0,
+    "real_2025": 76492.92,
+    "salary_index": 105.3541,
+    "price_index": 104.0516
+  },
+  {
+    "year": 2019,
+    "salary": 62600,
+    "cpi": 114.8,
+    "real_2025": 77268.47,
+    "salary_index": 108.1174,
+    "price_index": 105.709
+  },
+  {
+    "year": 2020,
+    "salary": 64700,
+    "cpi": 114.4,
+    "real_2025": 80139.77,
+    "salary_index": 111.7444,
+    "price_index": 105.3407
+  },
+  {
+    "year": 2021,
+    "salary": 65000,
+    "cpi": 118.8,
+    "real_2025": 77529.46,
+    "salary_index": 112.2625,
+    "price_index": 109.3923
+  },
+  {
+    "year": 2022,
+    "salary": 68000,
+    "cpi": 126.1,
+    "real_2025": 76412.37,
+    "salary_index": 117.4439,
+    "price_index": 116.1142
+  },
+  {
+    "year": 2023,
+    "salary": 71000,
+    "cpi": 133.7,
+    "real_2025": 75248.32,
+    "salary_index": 122.6252,
+    "price_index": 123.1123
+  },
+  {
+    "year": 2024,
+    "salary": 75000,
+    "cpi": 138.8,
+    "real_2025": 76567.0,
+    "salary_index": 129.5337,
+    "price_index": 127.8085
+  },
+  {
+    "year": 2025,
+    "salary": 77000,
+    "cpi": 141.7,
+    "real_2025": 77000.0,
+    "salary_index": 132.9879,
+    "price_index": 130.4788
+  }
+]

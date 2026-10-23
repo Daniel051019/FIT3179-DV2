@@ -1,0 +1,151 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 340,
+  "data": {
+    "url": "data/salary_trend.json"
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          50000,
+          82000
+        ]
+      },
+      "title": "Median annual full-time salary (AUD)",
+      "axis": {
+        "format": "$,.0f"
+      }
+    },
+    "color": {
+      "field": "series",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Salary in year reported",
+          "Salary in 2025 dollars"
+        ],
+        "range": [
+          "#126b68",
+          "#9d6a1d"
+        ]
+      },
+      "legend": {
+        "title": null
+      }
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "quantitative",
+        "title": "Year",
+        "format": "d"
+      },
+      {
+        "field": "series",
+        "type": "nominal",
+        "title": "Measure"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Salary",
+        "format": "$,.0f"
+      }
+    ]
+  },
+  "transform": [
+    {
+      "fold": [
+        "salary",
+        "real_2025"
+      ],
+      "as": [
+        "measure",
+        "value"
+      ]
+    },
+    {
+      "calculate": "datum.measure == 'salary' ? 'Salary in year reported' : 'Salary in 2025 dollars'",
+      "as": "series"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": true,
+        "strokeWidth": 3
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.series === 'Salary in 2025 dollars' && (datum.year === 2016 || datum.year === 2025)"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -15,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#9d6a1d"
+      },
+      "encoding": {
+        "text": {
+          "field": "value",
+          "format": "$,.0f"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 650,
+  "data": {
+    "url": "data/study_outcomes.json"
+  },
+  "params": [
+    {
+      "name": "yearChoice",
+      "value": 2025
+    },
+    {
+      "name": "nationalMedian",
+      "expr": "yearChoice === 2024 ? 75000 : 77000"
+    },
+    {
+      "name": "followField",
+      "value": ""
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.year == yearChoice"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 3,
+        "color": "#126b68"
+      },
+      "encoding": {
+        "y": {
+          "field": "label",
+          "type": "nominal",
+          "sort": [
+            "Dentistry",
+            "Medicine",
+            "Social work",
+            "Engineering",
+            "Teacher education",
+            "Computing & information systems",
+            "Law & paralegal studies",
+            "Health services and support",
+            "Psychology",
+            "Rehabilitation",
+            "Architecture & built environment",
+            "Humanities & social sciences",
+            "Nursing",
+            "Agriculture & environment",
+            "Veterinary science",
+            "Business & management",
+            "Science and mathematics",
+            "Tourism, hospitality & recreation",
+            "Communications",
+            "Creative arts",
+            "Pharmacy"
+          ],
+          "title": null
+        },
+        "x": {
+          "field": "salary",
+          "type": "quantitative",
+          "title": "Median annual full-time salary (AUD)",
+          "axis": {
+            "format": "$,.0f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "field",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Survey year",
+            "format": "d"
+          },
+          {
+            "field": "salary",
+            "type": "quantitative",
+            "title": "Median full-time salary",
+            "format": "$,.0f"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "test": "followField === '' || datum.field === followField",
+            "value": 1
+          },
+          "value": 0.16
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          5,
+          4
+        ],
+        "color": "#68757d",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "datum": {
+            "expr": "nationalMedian"
+          },
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "color": "#18354a",
+        "fontSize": 12
+      },
+      "encoding": {
+        "y": {
+          "field": "label",
+          "type": "nominal",
+          "sort": [
+            "Dentistry",
+            "Medicine",
+            "Social work",
+            "Engineering",
+            "Teacher education",
+            "Computing & information systems",
+            "Law & paralegal studies",
+            "Health services and support",
+            "Psychology",
+            "Rehabilitation",
+            "Architecture & built environment",
+            "Humanities & social sciences",
+            "Nursing",
+            "Agriculture & environment",
+            "Veterinary science",
+            "Business & management",
+            "Science and mathematics",
+            "Tourism, hospitality & recreation",
+            "Communications",
+            "Creative arts",
+            "Pharmacy"
+          ],
+          "title": null
+        },
+        "x": {
+          "field": "salary",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "salary",
+          "format": "$,.0f"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.field === 'Dentistry' || datum.field === 'Pharmacy' || datum.field === followField"
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -10,
+        "fontSize": 12,
+        "color": "#68757d"
+      },
+      "encoding": {
+        "x": {
+          "datum": {
+            "expr": "nationalMedian"
+          },
+          "type": "quantitative"
+        },
+        "y": {
+          "value": 0
+        },
+        "text": {
+          "value": {
+            "expr": "yearChoice + ' national median: ' + format(nationalMedian, '$,.0f')"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "linkedField": true
+  },
+  "padding": {
+    "top": 32,
+    "left": 5,
+    "right": 10,
+    "bottom": 5
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 340,
+  "data": {
+    "url": "data/state_context.json"
+  },
+  "encoding": {
+    "x": {
+      "field": "tile_x",
+      "type": "ordinal",
+      "axis": null,
+      "scale": {
+        "domain": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "padding": 0.08
+      }
+    },
+    "y": {
+      "field": "tile_y",
+      "type": "ordinal",
+      "axis": null,
+      "scale": {
+        "domain": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "padding": 0.08
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "bachelor_pct",
+        "type": "quantitative",
+        "title": "Bachelor as highest qualification (%)",
+        "format": "0.1f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 5
+      },
+      "encoding": {
+        "color": {
+          "field": "bachelor_pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              15,
+              28
+            ],
+            "range": [
+              "#f0edf7",
+              "#77568e"
+            ]
+          },
+          "legend": {
+            "title": "Share of residents aged 15–74 (%)"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -8,
+        "fontWeight": "bold",
+        "fontSize": 14
+      },
+      "encoding": {
+        "text": {
+          "field": "code"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.bachelor_pct > 25",
+            "value": "white"
+          },
+          "value": "#18354a"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "format(datum.bachelor_pct,'.1f')+'%'",
+          "as": "pct_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": 14,
+        "fontSize": 14
+      },
+      "encoding": {
+        "text": {
+          "field": "pct_label"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.bachelor_pct > 25",
+            "value": "white"
+          },
+          "value": "#18354a"
+        }
+      }
+    }
+  ]
+}

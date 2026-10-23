@@ -1,0 +1,227 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 400,
+  "data": {
+    "url": "data/study_outcomes.json"
+  },
+  "transform": [
+    {
+      "filter": "datum.year == 2025"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "fulltime_rate",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          45,
+          100
+        ]
+      },
+      "title": "Full-time employment rate (%)"
+    },
+    "y": {
+      "field": "salary",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          55000,
+          110000
+        ]
+      },
+      "title": "Median annual full-time salary (AUD)",
+      "axis": {
+        "format": "$,.0f"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          4
+        ],
+        "color": "#a8b8b4"
+      },
+      "encoding": {
+        "x": {
+          "datum": 75.4
+        },
+        "y": null
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          4
+        ],
+        "color": "#a8b8b4"
+      },
+      "encoding": {
+        "y": {
+          "datum": 77000
+        },
+        "x": null
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 150,
+        "color": "#18354a",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "opacity": {
+          "condition": {
+            "test": "followField === '' || datum.field === followField",
+            "value": 1
+          },
+          "value": 0.16
+        },
+        "tooltip": [
+          {
+            "field": "field",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Survey year",
+            "format": "d"
+          },
+          {
+            "field": "salary",
+            "type": "quantitative",
+            "title": "Median full-time salary",
+            "format": "$,.0f"
+          },
+          {
+            "field": "fulltime_rate",
+            "type": "quantitative",
+            "title": "Full-time employment rate",
+            "format": "0.1f"
+          }
+        ],
+        "size": {
+          "condition": {
+            "test": "datum.field === followField",
+            "value": 260
+          },
+          "value": 130
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": {
+            "field": "field",
+            "oneOf": [
+              "Dentistry",
+              "Pharmacy",
+              "Creative arts",
+              "Computing and information systems"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -12,
+        "fontSize": 12,
+        "color": "#18354a"
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        },
+        "opacity": {
+          "condition": {
+            "test": "followField === '' || datum.field === followField",
+            "value": 1
+          },
+          "value": 0.16
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.field === followField && indexof(['Dentistry','Pharmacy','Creative arts','Computing and information systems'],datum.field) < 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 9,
+        "dy": -13,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#18354a"
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "params": [
+    {
+      "name": "followField",
+      "value": ""
+    }
+  ],
+  "usermeta": {
+    "linkedField": true
+  }
+}

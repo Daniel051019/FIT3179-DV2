@@ -1,0 +1,178 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 630,
+  "data": {
+    "url": "data/study_outcomes.json"
+  },
+  "transform": [
+    {
+      "filter": "datum.year == 2025"
+    },
+    {
+      "fold": [
+        "parttime_share",
+        "underemployment_share"
+      ],
+      "as": [
+        "measure",
+        "pct"
+      ]
+    },
+    {
+      "calculate": "datum.measure == 'parttime_share' ? 'Working part-time' : 'Want more hours'",
+      "as": "metric"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "label",
+      "type": "nominal",
+      "title": null,
+      "sort": "ascending"
+    },
+    "x": {
+      "field": "metric",
+      "type": "nominal",
+      "sort": [
+        "Working part-time",
+        "Want more hours"
+      ],
+      "title": null,
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0
+      }
+    },
+    "tooltip": [
+      {
+        "field": "field",
+        "type": "nominal",
+        "title": "Study area"
+      },
+      {
+        "field": "metric",
+        "type": "nominal",
+        "title": "Measure"
+      },
+      {
+        "field": "pct",
+        "type": "quantitative",
+        "title": "Share of employed graduates (%)",
+        "format": "0.1f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              65
+            ],
+            "range": [
+              "#edf3fb",
+              "#3569a0"
+            ]
+          },
+          "legend": {
+            "title": "Share of employed graduates (%)",
+            "values": [
+              0,
+              20,
+              40,
+              60
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {
+            "test": "followField === '' || datum.field === followField",
+            "value": 1
+          },
+          "value": 0.16
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "pct",
+          "format": ".1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.pct > 48",
+            "value": "white"
+          },
+          "value": "#18354a"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.field === followField || datum.field === 'Creative arts' || datum.field === 'Pharmacy'"
+        }
+      ]
+    }
+  ],
+  "params": [
+    {
+      "name": "followField",
+      "value": ""
+    }
+  ],
+  "usermeta": {
+    "linkedField": true
+  }
+}

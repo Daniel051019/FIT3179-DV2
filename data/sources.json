@@ -1,0 +1,78 @@
+{
+  "accessed": "2026-10-15",
+  "sources": [
+    {
+      "id": "QILT",
+      "author": "Social Research Centre for the Australian Government Department of Education",
+      "title": "2025 GOS National Report Tables",
+      "url": "https://www.qilt.edu.au/docs/default-source/default-document-library/gos_2025_national_report_tables.zip",
+      "population": "Domestic undergraduate completers from all provider types; salaries restricted to full-time employment in Australia; outcomes around four to six months after completion",
+      "worksheets": [
+        "SAL_UG_ALL_2Y_AREA_E315",
+        "EMP_UG_ALL_2Y_AREA",
+        "PARTEMP_UG_ALL_1Y_AREA_E315",
+        "EMPSHARE_UG_ALL_16-YY",
+        "OCC_UG_ALL_1Y_EMPTYPE_E315"
+      ],
+      "sha256": "4b853781bbaf0caa195577c8ff6bf55216a229b76bd13639b13be83d9b433fa5"
+    },
+    {
+      "id": "QILT_REPORT",
+      "title": "2025 GOS National Report",
+      "url": "https://www.qilt.edu.au/docs/default-source/default-document-library/2025-gos-national-report.pdf",
+      "locator": "Figure 6, printed page 7 (PDF page 18), national undergraduate salary 2016–2025",
+      "method": "Ten salary observations transcribed from labelled figure and checked against its text. 2024–25 also cross-checked against worksheet total."
+    },
+    {
+      "id": "ABS_EARNINGS",
+      "author": "Australian Bureau of Statistics",
+      "title": "Employee earnings, August 2025, Table 2 / Data 2",
+      "url": "https://www.abs.gov.au/statistics/labour/earnings-and-working-conditions/employee-earnings/aug-2025/63370_Table02.xlsx",
+      "filter": "Survey month Aug-25, measure Median weekly earnings, Australia, Persons, each state in geography field, Total column O. All full-time and part-time employees, main job; not graduate-specific."
+    },
+    {
+      "id": "ABS_EDUCATION",
+      "author": "Australian Bureau of Statistics",
+      "title": "Education and Work, May 2025, Table 21",
+      "url": "https://www.abs.gov.au/statistics/people/education/education-and-work-australia/may-2025/SEW25DC06%20T21_T23.xlsx",
+      "cells": "Persons columns V:AC, row 11 Bachelor Degree estimates in thousands, row 23 published proportions. Persons aged 15–74. Highest attainment is Bachelor Degree, excludes people whose highest qualification is postgraduate. Not recent graduates."
+    },
+    {
+      "id": "ABS_CPI",
+      "author": "Australian Bureau of Statistics",
+      "title": "Consumer Price Index, June quarter 2025, Tables 1 and 2",
+      "url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/jun-quarter-2025/640101.xlsx",
+      "series": "A2325846C, all groups CPI Australia, weighted average of eight capital cities, original index, June quarter each year",
+      "cells": {
+        "2016": "J282",
+        "2017": "J286",
+        "2018": "J290",
+        "2019": "J294",
+        "2020": "J298",
+        "2021": "J302",
+        "2022": "J306",
+        "2023": "J310",
+        "2024": "J314",
+        "2025": "J318"
+      },
+      "method": "Salary in 2025 dollars = nominal salary × CPI June 2025 / CPI June salary year. June quarter is a consistent annual approximation to the GOS collection cycle, which ends in May, not an exact survey-weighted price index."
+    },
+    {
+      "id": "BOUNDARIES",
+      "author": "Natural Earth",
+      "title": "1:50m Admin 1 States and Provinces",
+      "url": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_admin_1_states_provinces.geojson",
+      "license": "Public domain: https://www.naturalearthdata.com/about/terms-of-use/",
+      "method": "Eight Australian states/territories filtered; coordinates rounded to three decimal places. Jervis Bay excluded because the statistical tables provide only eight state/territory categories. Symbol anchors are approximate state centres; tile positions are schematic."
+    }
+  ],
+  "missing": "n/a and blank salary cells retained as null, never replaced by zero. Dentistry male and tourism female 2025 are suppressed.",
+  "join": "Study tables joined by exact study-area label and year. Regional datasets joined by state name. CPI joined by calendar year. No person-level linkage.",
+  "limitations": [
+    "2025 QILT labour-force definitions changed. Employment rates before and after 2025 are not directly comparable.",
+    "Gender gaps are descriptive differences in medians, not adjusted estimates or equal-pay-for-the-same-job comparisons.",
+    "Changes across annual GOS samples are cohort comparisons, not individual pay rises.",
+    "ABS regional populations differ from QILT graduates. Regional employee earnings cannot be treated as starting salaries or used to calculate a state graduate pay premium.",
+    "Published ABS estimates are perturbed; component sums may differ from totals. Counts are survey estimates, not exact people counts."
+  ]
+}

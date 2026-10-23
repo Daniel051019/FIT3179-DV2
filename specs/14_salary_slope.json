@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#40545d",
+      "titleColor": "#40545d",
+      "gridColor": "#e9eeeb",
+      "domain": false,
+      "tickColor": "#c8d3d0",
+      "labelLimit": 420,
+      "labelPadding": 6,
+      "gridOpacity": 0.65
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "titleFontWeight": "normal",
+      "titleLimit": 500,
+      "labelLimit": 350,
+      "columns": 1
+    },
+    "title": {
+      "font": "Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  },
+  "height": 360,
+  "data": {
+    "url": "data/study_outcomes.json"
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "field",
+        "oneOf": [
+          "Computing and information systems",
+          "Nursing",
+          "Pharmacy",
+          "Teacher education"
+        ]
+      }
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": {
+      "filled": true,
+      "size": 90
+    },
+    "strokeWidth": 3
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "salary",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          55000,
+          87000
+        ]
+      },
+      "title": "Median annual full-time salary (AUD)",
+      "axis": {
+        "format": "$,.0f"
+      }
+    },
+    "color": {
+      "field": "label",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Computing & information systems",
+          "Nursing",
+          "Pharmacy",
+          "Teacher education"
+        ],
+        "range": [
+          "#8767ab",
+          "#c67a18",
+          "#6d6f75",
+          "#2c718c"
+        ]
+      },
+      "legend": {
+        "title": null
+      }
+    },
+    "tooltip": [
+      {
+        "field": "field",
+        "type": "nominal",
+        "title": "Study area"
+      },
+      {
+        "field": "year",
+        "type": "quantitative",
+        "title": "Survey year",
+        "format": "d"
+      },
+      {
+        "field": "salary",
+        "type": "quantitative",
+        "title": "Median full-time salary",
+        "format": "$,.0f"
+      }
+    ]
+  }
+}

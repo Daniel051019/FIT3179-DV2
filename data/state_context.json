@@ -1,0 +1,90 @@
+[
+  {
+    "code": "NSW",
+    "state": "New South Wales",
+    "longitude": 146,
+    "latitude": -32,
+    "tile_x": 3,
+    "tile_y": 1,
+    "weekly_earnings": 1464,
+    "bachelor_thousands": 1426.3,
+    "bachelor_pct": 22.7
+  },
+  {
+    "code": "VIC",
+    "state": "Victoria",
+    "longitude": 144.5,
+    "latitude": -37,
+    "tile_x": 3,
+    "tile_y": 2,
+    "weekly_earnings": 1380,
+    "bachelor_thousands": 1204.6,
+    "bachelor_pct": 23.0
+  },
+  {
+    "code": "QLD",
+    "state": "Queensland",
+    "longitude": 144,
+    "latitude": -22,
+    "tile_x": 3,
+    "tile_y": 0,
+    "weekly_earnings": 1439,
+    "bachelor_thousands": 775.4,
+    "bachelor_pct": 19.0
+  },
+  {
+    "code": "SA",
+    "state": "South Australia",
+    "longitude": 135,
+    "latitude": -30,
+    "tile_x": 2,
+    "tile_y": 1,
+    "weekly_earnings": 1300,
+    "bachelor_thousands": 253.3,
+    "bachelor_pct": 18.5
+  },
+  {
+    "code": "WA",
+    "state": "Western Australia",
+    "longitude": 122,
+    "latitude": -25,
+    "tile_x": 0,
+    "tile_y": 1,
+    "weekly_earnings": 1500,
+    "bachelor_thousands": 431.6,
+    "bachelor_pct": 19.9
+  },
+  {
+    "code": "TAS",
+    "state": "Tasmania",
+    "longitude": 147,
+    "latitude": -42,
+    "tile_x": 3,
+    "tile_y": 3,
+    "weekly_earnings": 1300,
+    "bachelor_thousands": 68.9,
+    "bachelor_pct": 16.5
+  },
+  {
+    "code": "NT",
+    "state": "Northern Territory",
+    "longitude": 133,
+    "latitude": -19,
+    "tile_x": 1,
+    "tile_y": 0,
+    "weekly_earnings": 1510,
+    "bachelor_thousands": 29.4,
+    "bachelor_pct": 19.4
+  },
+  {
+    "code": "ACT",
+    "state": "Australian Capital Territory",
+    "longitude": 149.0,
+    "latitude": -35.5,
+    "tile_x": 4,
+    "tile_y": 2,
+    "weekly_earnings": 1600,
+    "bachelor_thousands": 94.6,
+    "bachelor_pct": 26.5
+  }
+]

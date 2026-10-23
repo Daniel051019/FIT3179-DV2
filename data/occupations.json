@@ -1,0 +1,26 @@
+[
+  {
+    "occupation": "Managers",
+    "share": 5.0
+  },
+  {
+    "occupation": "Professionals",
+    "share": 50.3
+  },
+  {
+    "occupation": "Technicians and Trades Workers",
+    "share": 4.5
+  },
+  {
+    "occupation": "Community and Personal Service Workers",
+    "share": 15.1
+  },
+  {
+    "occupation": "Clerical and Administrative Workers",
+    "share": 12.1
+  },
+  {
+    "occupation": "Other occupations",
+    "share": 13.1
+  }
+]

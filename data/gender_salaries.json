@@ -1,0 +1,590 @@
+[
+  {
+    "field": "Agriculture and environmental studies",
+    "label": "Agriculture & environment",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 70800.0
+  },
+  {
+    "field": "Agriculture and environmental studies",
+    "label": "Agriculture & environment",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 73200.0
+  },
+  {
+    "field": "Agriculture and environmental studies",
+    "label": "Agriculture & environment",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 75000.0
+  },
+  {
+    "field": "Agriculture and environmental studies",
+    "label": "Agriculture & environment",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 75000.0
+  },
+  {
+    "field": "Architecture and built environment",
+    "label": "Architecture & built environment",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 69400.0
+  },
+  {
+    "field": "Architecture and built environment",
+    "label": "Architecture & built environment",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 78700.0
+  },
+  {
+    "field": "Architecture and built environment",
+    "label": "Architecture & built environment",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 72500.0
+  },
+  {
+    "field": "Architecture and built environment",
+    "label": "Architecture & built environment",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 79300.0
+  },
+  {
+    "field": "Business and management",
+    "label": "Business & management",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 72000.0
+  },
+  {
+    "field": "Business and management",
+    "label": "Business & management",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 72000.0
+  },
+  {
+    "field": "Business and management",
+    "label": "Business & management",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 72500.0
+  },
+  {
+    "field": "Business and management",
+    "label": "Business & management",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 75000.0
+  },
+  {
+    "field": "Communications",
+    "label": "Communications",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 66500.0
+  },
+  {
+    "field": "Communications",
+    "label": "Communications",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 63400.0
+  },
+  {
+    "field": "Communications",
+    "label": "Communications",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 66500.0
+  },
+  {
+    "field": "Communications",
+    "label": "Communications",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 65300.0
+  },
+  {
+    "field": "Computing and information systems",
+    "label": "Computing & information systems",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 75000.0
+  },
+  {
+    "field": "Computing and information systems",
+    "label": "Computing & information systems",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 76000.0
+  },
+  {
+    "field": "Computing and information systems",
+    "label": "Computing & information systems",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 79200.0
+  },
+  {
+    "field": "Computing and information systems",
+    "label": "Computing & information systems",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 80000.0
+  },
+  {
+    "field": "Creative arts",
+    "label": "Creative arts",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 62000.0
+  },
+  {
+    "field": "Creative arts",
+    "label": "Creative arts",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 65500.0
+  },
+  {
+    "field": "Creative arts",
+    "label": "Creative arts",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 64200.0
+  },
+  {
+    "field": "Creative arts",
+    "label": "Creative arts",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 62500.0
+  },
+  {
+    "field": "Dentistry",
+    "label": "Dentistry",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 97300.0
+  },
+  {
+    "field": "Dentistry",
+    "label": "Dentistry",
+    "year": 2024,
+    "gender": "Male",
+    "salary": null
+  },
+  {
+    "field": "Dentistry",
+    "label": "Dentistry",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 100400.0
+  },
+  {
+    "field": "Dentistry",
+    "label": "Dentistry",
+    "year": 2025,
+    "gender": "Male",
+    "salary": null
+  },
+  {
+    "field": "Engineering",
+    "label": "Engineering",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 78300.0
+  },
+  {
+    "field": "Engineering",
+    "label": "Engineering",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 80000.0
+  },
+  {
+    "field": "Engineering",
+    "label": "Engineering",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 80400.0
+  },
+  {
+    "field": "Engineering",
+    "label": "Engineering",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 83000.0
+  },
+  {
+    "field": "Health services and support",
+    "label": "Health services and support",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 73600.0
+  },
+  {
+    "field": "Health services and support",
+    "label": "Health services and support",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 75800.0
+  },
+  {
+    "field": "Health services and support",
+    "label": "Health services and support",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 76200.0
+  },
+  {
+    "field": "Health services and support",
+    "label": "Health services and support",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 80000.0
+  },
+  {
+    "field": "Humanities, culture and social sciences",
+    "label": "Humanities & social sciences",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 72400.0
+  },
+  {
+    "field": "Humanities, culture and social sciences",
+    "label": "Humanities & social sciences",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 74000.0
+  },
+  {
+    "field": "Humanities, culture and social sciences",
+    "label": "Humanities & social sciences",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 75000.0
+  },
+  {
+    "field": "Humanities, culture and social sciences",
+    "label": "Humanities & social sciences",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 78300.0
+  },
+  {
+    "field": "Law and paralegal studies",
+    "label": "Law & paralegal studies",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 75000.0
+  },
+  {
+    "field": "Law and paralegal studies",
+    "label": "Law & paralegal studies",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 80000.0
+  },
+  {
+    "field": "Law and paralegal studies",
+    "label": "Law & paralegal studies",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 77000.0
+  },
+  {
+    "field": "Law and paralegal studies",
+    "label": "Law & paralegal studies",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 83000.0
+  },
+  {
+    "field": "Medicine",
+    "label": "Medicine",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 84000.0
+  },
+  {
+    "field": "Medicine",
+    "label": "Medicine",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 87700.0
+  },
+  {
+    "field": "Medicine",
+    "label": "Medicine",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 85800.0
+  },
+  {
+    "field": "Medicine",
+    "label": "Medicine",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 86700.0
+  },
+  {
+    "field": "Nursing",
+    "label": "Nursing",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 71400.0
+  },
+  {
+    "field": "Nursing",
+    "label": "Nursing",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 74000.0
+  },
+  {
+    "field": "Nursing",
+    "label": "Nursing",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 75100.0
+  },
+  {
+    "field": "Nursing",
+    "label": "Nursing",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 77100.0
+  },
+  {
+    "field": "Pharmacy",
+    "label": "Pharmacy",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 59500.0
+  },
+  {
+    "field": "Pharmacy",
+    "label": "Pharmacy",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 58900.0
+  },
+  {
+    "field": "Pharmacy",
+    "label": "Pharmacy",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 62600.0
+  },
+  {
+    "field": "Pharmacy",
+    "label": "Pharmacy",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 63400.0
+  },
+  {
+    "field": "Psychology",
+    "label": "Psychology",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 75000.0
+  },
+  {
+    "field": "Psychology",
+    "label": "Psychology",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 77800.0
+  },
+  {
+    "field": "Psychology",
+    "label": "Psychology",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 77000.0
+  },
+  {
+    "field": "Psychology",
+    "label": "Psychology",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 72000.0
+  },
+  {
+    "field": "Rehabilitation",
+    "label": "Rehabilitation",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 75000.0
+  },
+  {
+    "field": "Rehabilitation",
+    "label": "Rehabilitation",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 75000.0
+  },
+  {
+    "field": "Rehabilitation",
+    "label": "Rehabilitation",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 75100.0
+  },
+  {
+    "field": "Rehabilitation",
+    "label": "Rehabilitation",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 76200.0
+  },
+  {
+    "field": "Science and mathematics",
+    "label": "Science and mathematics",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 70000.0
+  },
+  {
+    "field": "Science and mathematics",
+    "label": "Science and mathematics",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 75000.0
+  },
+  {
+    "field": "Science and mathematics",
+    "label": "Science and mathematics",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 71800.0
+  },
+  {
+    "field": "Science and mathematics",
+    "label": "Science and mathematics",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 77000.0
+  },
+  {
+    "field": "Social work",
+    "label": "Social work",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 81500.0
+  },
+  {
+    "field": "Social work",
+    "label": "Social work",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 82300.0
+  },
+  {
+    "field": "Social work",
+    "label": "Social work",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 85300.0
+  },
+  {
+    "field": "Social work",
+    "label": "Social work",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 85100.0
+  },
+  {
+    "field": "Teacher education",
+    "label": "Teacher education",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 78300.0
+  },
+  {
+    "field": "Teacher education",
+    "label": "Teacher education",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 81000.0
+  },
+  {
+    "field": "Teacher education",
+    "label": "Teacher education",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 81000.0
+  },
+  {
+    "field": "Teacher education",
+    "label": "Teacher education",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 84100.0
+  },
+  {
+    "field": "Tourism, hospitality, personal services, sport and recreation",
+    "label": "Tourism, hospitality & recreation",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 60000.0
+  },
+  {
+    "field": "Tourism, hospitality, personal services, sport and recreation",
+    "label": "Tourism, hospitality & recreation",
+    "year": 2024,
+    "gender": "Male",
+    "salary": 70200.0
+  },
+  {
+    "field": "Tourism, hospitality, personal services, sport and recreation",
+    "label": "Tourism, hospitality & recreation",
+    "year": 2025,
+    "gender": "Female",
+    "salary": null
+  },
+  {
+    "field": "Tourism, hospitality, personal services, sport and recreation",
+    "label": "Tourism, hospitality & recreation",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 70000.0
+  },
+  {
+    "field": "Veterinary science",
+    "label": "Veterinary science",
+    "year": 2024,
+    "gender": "Female",
+    "salary": 70000.0
+  },
+  {
+    "field": "Veterinary science",
+    "label": "Veterinary science",
+    "year": 2024,
+    "gender": "Male",
+    "salary": null
+  },
+  {
+    "field": "Veterinary science",
+    "label": "Veterinary science",
+    "year": 2025,
+    "gender": "Female",
+    "salary": 75000.0
+  },
+  {
+    "field": "Veterinary science",
+    "label": "Veterinary science",
+    "year": 2025,
+    "gender": "Male",
+    "salary": 77800.0
+  }
+]

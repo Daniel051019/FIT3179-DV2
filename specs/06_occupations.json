@@ -1,0 +1,219 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 530,
+  "height": 340,
+  "padding": 5,
+  "autosize": "fit",
+  "background": null,
+  "data": [
+    {
+      "name": "tree",
+      "values": [
+        {
+          "id": "root",
+          "parent": null,
+          "share": 0
+        },
+        {
+          "id": "Managers",
+          "parent": "root",
+          "share": 5.0
+        },
+        {
+          "id": "Professionals",
+          "parent": "root",
+          "share": 50.3
+        },
+        {
+          "id": "Technicians and Trades Workers",
+          "parent": "root",
+          "share": 4.5
+        },
+        {
+          "id": "Community and Personal Service Workers",
+          "parent": "root",
+          "share": 15.1
+        },
+        {
+          "id": "Clerical and Administrative Workers",
+          "parent": "root",
+          "share": 12.1
+        },
+        {
+          "id": "Other occupations",
+          "parent": "root",
+          "share": 13.1
+        }
+      ],
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "share",
+          "sort": {
+            "field": "value",
+            "order": "descending"
+          },
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ],
+          "paddingInner": 4,
+          "round": true
+        }
+      ]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.depth == 1"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "Managers",
+        "Professionals",
+        "Technicians and Trades Workers",
+        "Community and Personal Service Workers",
+        "Clerical and Administrative Workers",
+        "Other occupations"
+      ],
+      "range": [
+        "#314b63",
+        "#455f7d",
+        "#b3c0cf",
+        "#9887ad",
+        "#c8b5d2",
+        "#ded7e7"
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "enter": {
+          "fill": {
+            "scale": "color",
+            "field": "id"
+          },
+          "x": {
+            "field": "x0"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "tooltip": {
+            "signal": "datum.id + ': ' + datum.share + '% of employed graduates'"
+          }
+        },
+        "hover": {
+          "fillOpacity": {
+            "value": 0.8
+          }
+        },
+        "update": {
+          "fillOpacity": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "(datum.x0+datum.x1)/2"
+          },
+          "y": {
+            "signal": "(datum.y0+datum.y1)/2-9"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 10
+          },
+          "fill": {
+            "signal": "datum.id === 'Managers' || datum.id === 'Professionals' ? 'white' : '#18354a'"
+          },
+          "text": {
+            "signal": "datum.id == 'Community and Personal Service Workers' ? ['Community','services'] : datum.id == 'Clerical and Administrative Workers' ? ['Clerical','& admin'] : datum.id == 'Technicians and Trades Workers' ? 'T&T' : datum.id == 'Other occupations' ? ['Other','jobs'] : datum.id == 'Managers' ? 'Mgmt' : datum.id"
+          },
+          "lineHeight": {
+            "value": 15
+          },
+          "limit": {
+            "signal": "datum.x1-datum.x0-12"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "(datum.x0+datum.x1)/2"
+          },
+          "y": {
+            "signal": "(datum.y0+datum.y1)/2+30"
+          },
+          "align": {
+            "value": "center"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 18
+          },
+          "fill": {
+            "signal": "datum.id === 'Managers' || datum.id === 'Professionals' ? 'white' : '#18354a'"
+          },
+          "text": {
+            "signal": "datum.share+'%'"
+          }
+        }
+      }
+    }
+  ]
+}
