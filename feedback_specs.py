@@ -52,7 +52,7 @@ def run():
             if 'title' in row:row['title']=titles[row['axis']]
         if layer.get('mark',{}).get('type')=='text' and 'title' in layer.get('encoding',{}).get('text',{}).get('field',''):
             layer['mark'].update(dy=-61,fontSize=13,lineBreak='\n',lineHeight=17)
-    directions=[{'axis':i,'score':1,'direction':t} for i,t in enumerate(['↑ Higher pay','↑ More access to work','↑ Fewer wanting more hours'])]
+    directions=[{'axis':i,'score':1,'direction':t} for i,t in enumerate(['↑ Higher pay','↑ More access to work','↑ More wanting extra hours'])]
     parallel['layer'].insert(4,{'data':{'values':directions},'mark':{'type':'text','dy':-15,'fontSize':12,'fontWeight':'bold','color':'#126b68'},'encoding':{'text':{'field':'direction'}}})
     profiles=parallel['layer'][-1]
     for row in profiles['data']['values']:

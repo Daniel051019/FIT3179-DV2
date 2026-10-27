@@ -7,7 +7,7 @@ Start with `index.html`. The generated HTML includes the CSS, JavaScript, data a
 1. Extract the ZIP. Open the `graduate-salaries` folder in VS Code.
 2. Install the **Live Server** extension by Ritwick Dey if it is not already installed.
 3. Right-click `index.html` and choose **Open with Live Server**.
-4. Confirm that all 15 charts appear. Try the year selector above chart 1. Its reference line changes to $75,000 for 2024 and $77,000 for 2025. Select a discipline, or click a linked chart mark, to highlight that field across six related charts. Clear the highlight to restore the full view.
+4. Confirm that all 15 charts appear. Try the year selector above chart 1. Its reference line changes to $75,000 for 2024 and $77,000 for 2025. Select a discipline, or click a linked chart mark, to highlight that field across related charts. Clear the highlight to restore the full view.
 
 Alternative if Python is already installed: open the terminal in this folder, run `python -m http.server 8000`, and visit `http://localhost:8000`. On some systems the command is `python3 -m http.server 8000`.
 
@@ -48,7 +48,7 @@ The brief gives the deadline as **25 October 2026, 11:55 pm**. The local files a
 
 Main salary/employment data are QILT's 2025 national tables, including 2024 comparisons. Salary history is Figure 6 of its report. ABS regional earnings and qualification data are **context**, explicitly labelled as different populations. They must not be interpreted as state graduate starting salaries. CPI is matched to 2016–25, not extrapolated beyond the graduate salary period.
 
-The generated HTML is about 0.36 MB and the three local chart libraries total about 0.83 MB. The normal page load is around 1.2 MB, below a few megabytes. Data are embedded and no API key is needed. Local libraries avoid a CDN dependency in the complete project. The original multi-megabyte workbooks are linked as sources rather than sent to each visitor.
+The generated HTML is about 0.38 MB and the three local chart libraries total about 0.83 MB. The normal page load is around 1.2 MB, below a few megabytes. Data are embedded and no API key is needed. Local libraries avoid a CDN dependency in the complete project. The original multi-megabyte workbooks are linked as sources rather than sent to each visitor.
 
 ## Chart count and complexity
 
@@ -69,8 +69,9 @@ The generated HTML is about 0.36 MB and the three local chart libraries total ab
 | 13 | 13_degree_cartogram | Equal-size tile cartogram | Advanced map idiom 3 |
 | 14 | 14_salary_slope | Slope chart | Do not rely on this for advanced count |
 | 15 | 15_parallel_outcomes | Parallel coordinates with separately labelled scales | Advanced |
+| 16 | 16_salary_change | Diverging salary-change bars, available in Section 1 | Basic |
 
-There are eight planned advanced forms even without counting the bullet chart: heatmap, waffle, treemap, waterfall, three map idioms and parallel coordinates. The rubric's classification is the tutor's decision, so discuss the bullet and tile cartogram with your tutor before relying on the HD complexity count. Fifteen charts exceed the ten-chart minimum; changing the year does not count as a separate chart.
+There are eight planned advanced forms even without counting the bullet chart: heatmap, waffle, treemap, waterfall, three map idioms and parallel coordinates. The rubric's classification is the tutor's decision, so discuss the bullet and tile cartogram with your tutor before relying on the HD complexity count. Sixteen charts exceed the ten-chart minimum; changing the year does not count as a separate chart.
 
 ## Lecturer-feedback revision
 
@@ -80,16 +81,16 @@ There are eight planned advanced forms even without counting the bullet chart: h
 - Pay remains teal; employment shares use blue; gender uses consistent coral/indigo; inflation-adjusted salary uses gold; qualification maps use violet. Study-area colours agree between the slope and parallel-coordinate charts.
 - Salary labels are selective: extremes and the selected field. Other values remain in tooltips. The heatmap follows the same selective-label approach.
 - The year control is above the chart; its national benchmark changes with the year.
-- Discipline highlighting links six charts without hiding major page sections.
+- Discipline highlighting links seven charts without hiding major page sections.
 
 The Word file in `submission/` remains a draft; update its How description after finalising the webpage and add the required URL, sketch and screenshot.
 
 ## Verification completed here
 
-- All 15 specifications compiled, executed and rendered as SVG through Vega/Vega-Lite, and were visually inspected.
+- All 16 specifications compiled, executed and rendered as SVG through Vega/Vega-Lite, and were visually inspected.
 - Source joins, missing-value handling, headline arithmetic, CPI adjustment, state coverage and local asset paths were checked.
 - The Word draft was rendered and visually inspected.
-- Browser automation was unavailable in this environment. Check the complete webpage layout, hover interactions, mobile/laptop sizing and GitHub Pages delivery in your browser before submission. The live URL, hand-drawn sketch and final webpage screenshot still require your account/work.
+- The updated page was opened in a browser. Salary/change switching, both year benchmarks, linked discipline highlighting and all three parallel-profile selections were checked. Final GitHub Pages delivery, your hand-drawn sketch and the final screenshot still require your account/work.
 
 ## Authorship and AI use
 
@@ -98,3 +99,26 @@ Daniel Ooi Kean Siong. Prepared 15 October 2026. ChatGPT assisted with source re
 ## Third-party code
 
 Vega 5.33.0, Vega-Lite 5.23.0 and Vega-Embed 6.29.0 are included under their BSD-3-Clause licenses. See `vendor/THIRD_PARTY.md`. Natural Earth boundaries are public domain. ABS materials are attributed in the webpage and source manifest. QILT datasets remain subject to their original terms; the project redistributes only the small derived statistical extracts used in its charts.
+
+## Peer-feedback changes — 22 October 2026
+
+1. Section 1 now offers **Salary levels** and **Change: 2024–2025**. The change view includes all 21 fields, signed dollar changes and tooltips showing both annual medians and percentage change. Negative bars show the two declining medians. Both views share the discipline highlight. These are different graduate cohorts, not individual pay rises.
+2. Section 2 adds a local **Highlight a profile** selector. Selecting one of the three illustrative fields fades the other lines and shows the selected values with units. Axis titles, denominator explanations and arrows show that every axis increases upwards.
+3. Section 3 places a visible context note before the first gender chart: the gaps describe groups and do not establish causation or adjust for occupation, hours or prior experience.
+4. Section 5 labels the earnings map as weekly earnings across the wider workforce. A note immediately above the map distinguishes its all-employee population and weekly pay period from graduate annual salaries.
+
+Paragraphs and source notes retain the maximum of ten words per bounded line. The salary-change view adds a sixteenth chart definition; it shares the first chart's panel rather than lengthening the page.
+
+### Apply this update to your current repository
+
+The finished `index.html` embeds the revised CSS, JavaScript, chart definitions and data. Replace your root `index.html` with this file. Also upload `specs/15_parallel_outcomes.json` and `specs/16_salary_change.json` so the readable Chart JSON links match the embedded definitions.
+
+If keeping authoring sources in GitHub, replace `app.js`, `style.css`, `source/page.html`, `build_html.py`, `build_specs.py`, and add `feedback_specs.py`. Existing datasets and vendor libraries are unchanged. No build command is required to publish the supplied `index.html`. For future source edits, run `python build_specs.py` followed by `python build_html.py`.
+
+## Axis revision — zero baselines
+
+All three parallel-coordinate axes now start at zero and increase upwards. Salary uses $0–$100,000 for the three illustrated profiles. Both percentage axes use 0–100%. The right-hand axis is no longer reversed: a higher point means more employed graduates want extra hours, so a higher value on this axis is not a better employment outcome. This wider percentage range reduces visual emphasis on small differences while making the two percentage scales consistent.
+
+The point positions are salary / 100000, full-time employment percentage / 100, and underemployment percentage / 100. These are plotting positions, not an overall outcome score. Original observed values and denominators remain in the tooltips and explanations.
+
+To edit the generator, the parallel chart definitions are near the end of build_specs.py, and its titles/direction labels are in feedback_specs.py. The supplied index.html already contains the changed definitions and text.

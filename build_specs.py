@@ -90,14 +90,14 @@ vl('14_salary_slope',{'height':360,'data':studies(),'transform':[{'filter':{'fie
 # Each axis has its own labelled units; the plotted positions are simple linear rescalings.
 axes=[{'axis':0,'score':1,'title':'Salary (AUD)'},{'axis':1,'score':1,'title':'Full-time employment (%)'},{'axis':2,'score':1,'title':'Want more hours (%)'}]
 ticks=[]
-for axis,vals in [(0,[60000,80000,100000]),(1,[50,75,100]),(2,[0,20,40])]:
+for axis,vals in [(0,[0,25000,50000,75000,100000]),(1,[0,25,50,75,100]),(2,[0,25,50,75,100])]:
     for value in vals:
-        score=(value-55000)/55000 if axis==0 else (value-45)/55 if axis==1 else (40-value)/40
+        score=value/100000 if axis==0 else value/100
         ticks.append({'axis':axis,'score':score,'tick':f'${value:,.0f}' if axis==0 else f'{value:.0f}%'})
 points=[]
 for row in study_rows:
     if row['year']!=2025 or row['field'] not in ['Computing and information systems','Pharmacy','Creative arts']:continue
-    for axis,key,score in [(0,'salary',(row['salary']-55000)/55000),(1,'fulltime_rate',(row['fulltime_rate']-45)/55),(2,'underemployment_share',(40-row['underemployment_share'])/40)]:
+    for axis,key,score in [(0,'salary',row['salary']/100000),(1,'fulltime_rate',row['fulltime_rate']/100),(2,'underemployment_share',row['underemployment_share']/100)]:
         points.append({'axis':axis,'score':score,'study':row['field'],'label':'Computing' if row['field'].startswith('Computing') else row['field'],'measure':axes[axis]['title'],'value':row[key]})
 vl('15_parallel_outcomes',{'height':310,'padding':{'top':38,'bottom':5,'left':5,'right':5},'encoding':{'x':{'field':'axis','type':'quantitative','scale':{'domain':[-0.28,2.28]},'axis':None},'y':{'field':'score','type':'quantitative','scale':{'domain':[0,1]},'axis':None}},'layer':[
  {'data':{'values':axes},'mark':{'type':'rule','color':'#cad6d1'},'encoding':{'y':{'datum':0},'y2':{'datum':1}}},
@@ -111,3 +111,5 @@ print('Wrote',len(list(S.glob('*.json'))),'chart specifications')
 # Apply the feedback revision after generating the base charts.
 from refine_specs import run as refine
 refine()
+from feedback_specs import run as studio_feedback
+studio_feedback()

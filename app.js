@@ -1,6 +1,6 @@
 'use strict';
 // Data and readable chart definitions are embedded in index.html.
-const CHART_FILES={'01':'01_salary','02':'02_bullet','03':'03_salary_employment','04':'04_parttime_heatmap','05':'05_waffle','06':'06_occupations','07':'07_gender_dumbbell','08':'08_gender_gap','09':'09_salary_trend','10':'10_waterfall','11':'11_earnings_map','12':'12_degree_symbols','13':'13_degree_cartogram','14':'14_salary_slope','15':'15_parallel_outcomes'};
+const CHART_FILES={'01':'01_salary','02':'02_bullet','03':'03_salary_employment','04':'04_parttime_heatmap','05':'05_waffle','06':'06_occupations','07':'07_gender_dumbbell','08':'08_gender_gap','09':'09_salary_trend','10':'10_waterfall','11':'11_earnings_map','12':'12_degree_symbols','13':'13_degree_cartogram','14':'14_salary_slope','15':'15_parallel_outcomes','16':'16_salary_change'};
 const views=new Map();
 let selectedField='',embeddedData,embeddedSpecs;
 const weight=word=>(word.match(/[A-Za-z0-9]+(?:['’][A-Za-z]+)*/g)||[]).length||1;
@@ -67,18 +67,36 @@ function portableLinks(){
     a.href=URL.createObjectURL(new Blob([typeof source==='string'?source:JSON.stringify(source,null,2)],{type:name.endsWith('.csv')?'text/csv':'application/json'}));a.download=name;
   }
 }
+async function showSalaryView(mode){
+  const changes=mode==='change';
+  for(const button of document.querySelectorAll('[data-salary-view]'))button.setAttribute('aria-pressed',String(button.dataset.salaryView===mode));
+  document.getElementById('salary-level-panel').hidden=changes;
+  document.getElementById('salary-change-panel').hidden=!changes;
+  // Render once the newly visible container has its actual width.
+  const id=changes?'16':'01',entry=views.get(id);
+  if(entry)entry.view.finalize();
+  views.delete(id);
+  if(window.vegaEmbed)await draw(id,CHART_FILES[id]);
+}
+async function highlightParallel(field){
+  const entry=views.get('15');
+  if(entry)await entry.view.signal('parallelField',field).runAsync();
+  setLimitedText(document.getElementById('parallel-status'),field?field+' is highlighted. Other profiles remain visible for comparison.':'All three profiles are visible. Select a study area to follow its line.');
+}
 async function start(){
   embeddedData=JSON.parse(document.getElementById('embedded-data').textContent);embeddedSpecs=JSON.parse(document.getElementById('embedded-specs').textContent);
   const selector=document.getElementById('study-selector');
   for(const field of [...new Set(embeddedData['study_outcomes.json'].map(d=>d.field))].sort()){const option=document.createElement('option');option.value=field;option.textContent=field;selector.append(option);}
   selector.addEventListener('change',e=>followField(e.target.value));
   document.getElementById('clear-selection').addEventListener('click',()=>followField(''));
+  for(const button of document.querySelectorAll('[data-salary-view]'))button.addEventListener('click',()=>showSalaryView(button.dataset.salaryView));
+  document.getElementById('parallel-selector').addEventListener('change',e=>highlightParallel(e.target.value));
   document.getElementById('salary-year').addEventListener('change',async e=>{
     const year=Number(e.target.value),entry=views.get('01');if(entry)await entry.view.signal('yearChoice',year).runAsync();
     setLimitedText(document.getElementById('year-status'),year+' national median: '+(year===2024?'$75,000':'$77,000')+'. Other comparison charts show 2025.');
   });
   updateStatus();portableLinks();
-  try{await loadLibraries();await Promise.all(Object.entries(CHART_FILES).map(([id,file])=>draw(id,file)));}
+  try{await loadLibraries();await Promise.all(Object.entries(CHART_FILES).filter(([id])=>id!=='16').map(([id,file])=>draw(id,file)));await highlightParallel(document.getElementById('parallel-selector').value);if(!document.getElementById('salary-change-panel').hidden&&!views.has('16'))await draw('16',CHART_FILES['16']);}
   catch(error){console.error(error);for(const node of document.querySelectorAll('.chart')){const p=document.createElement('p');p.className='chart-error';setLimitedText(p,'Chart libraries could not load. Use the complete project folder, or connect to the internet and refresh.');node.replaceChildren(p);}}
 }
 start();

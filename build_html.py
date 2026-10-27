@@ -18,12 +18,20 @@ first=doc.get_element_by_id('chart-01')
 controls=fragment('''<div class="chart-controls"><div class="control-row"><label for="salary-year">Survey year</label><select id="salary-year"><option value="2025" selected="selected">2025</option><option value="2024">2024</option></select></div><p id="year-status" class="year-status" aria-live="polite">2025 national median: $77,000. Other comparison charts show 2025.</p></div>''')
 first.addprevious(controls)
 figure=first.getparent()
+tabs=fragment('''<div class="salary-view-controls" role="group" aria-label="Salary comparison view"><button type="button" data-salary-view="level" aria-pressed="true" aria-controls="salary-level-panel">Salary levels</button><button type="button" data-salary-view="change" aria-pressed="false" aria-controls="salary-change-panel">Change: 2024–2025</button></div>''')
+controls.addprevious(tabs)
+level=etree.Element('div',{'id':'salary-level-panel'})
+tabs.addnext(level)
+level.append(controls);level.append(first)
+level.append(figure.xpath('./p[@class="source"]')[0])
+change=fragment('''<div id="salary-change-panel" hidden="hidden"><p class="chart-description">Compare both years without switching the year selector. Bars show the change in median annual salary. Left means a decrease; right means an increase. These are nominal changes between different graduating cohorts.</p><div class="comparison-scroll"><div id="chart-16" class="chart" aria-label="Change in median annual graduate salaries from 2024 to 2025 across all study areas"></div></div><p class="source">Change = 2025 median minus 2024 median. QILT GOS salary tables; different cohorts, not individual pay rises. <a href="specs/16_salary_change.json">Chart JSON</a> · <a href="data/study_outcomes.csv">Data CSV</a></p></div>''')
+level.addnext(change)
 compare=fragment('''<div class="comparison-controls" aria-label="Compare study areas"><div class="control-row"><label for="study-selector">Follow a study area</label><select id="study-selector"><option value="">All study areas</option></select><button id="clear-selection" type="button" disabled="disabled">Clear highlight</button></div><p id="selection-status" class="selection-status" aria-live="polite">All study areas are visible. Choose a field to highlight the same discipline across related charts.</p></div>''')
 figure.addprevious(compare)
 
 for p in doc.xpath('//p'):
     if 'Change the year to compare' in p.text_content():
-        p.text='Compare the two most recent graduate cohorts. The dashed line marks the selected year’s national median. Areas retain their 2025 ordering. Hover for values; click a bar to follow that field.'
+        p.text='Choose salary levels or the change between both years. In salary levels, the dashed line marks the national median. Change view compares all disciplines directly. Click a bar to follow that study area.'
     if 'Positive values mean a higher male median.' in p.text_content():
         p.text='Indigo bars mean a higher male median. Coral bars mean a higher female median. Gap = (male median − female median) ÷ male median × 100.'
     if 'The orange series expresses' in p.text_content():
