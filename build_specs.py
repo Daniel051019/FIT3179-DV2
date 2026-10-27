@@ -113,3 +113,6 @@ from refine_specs import run as refine
 refine()
 from feedback_specs import run as studio_feedback
 studio_feedback()
+
+from polish_specs import run as polish
+polish()

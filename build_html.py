@@ -97,6 +97,14 @@ for element in doc.xpath('//p|//footer/ol/li'):
         assert sum(weight(w) for w in element.text_content().split())<=10
         continue
     tokens=list(tokenize(element))
+    grouped=[];i=0
+    while i<len(tokens):
+        word,path=tokens[i];j=i+1
+        if any(tag=='a' for tag,attrs in path):
+            while j<len(tokens) and tokens[j][1]==path:
+                word+=' '+tokens[j][0];j+=1
+        grouped.append((word,path));i=j
+    tokens=grouped
     original=' '.join(element.text_content().split())
     lines=[];current=[];count=0
     for word,path in tokens:
